@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    /* 배경은 더 부드러운 그레이로 */
+    --background: 0 0% 97%;
+    --foreground: 0 0% 9%;
+
+    /* 카드는 살짝 불투명하게 */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+
+    /* 포인트 색상은 진한 회색으로 */
+    --primary: 0 0% 25%;
+    --primary-foreground: 0 0% 100%;
+
+    /* 보조 색상은 더 연하게 */
+    --secondary: 0 0% 94%;
+    --secondary-foreground: 0 0% 25%;
+
+    /* 뮤트된 색상 */
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 45%;
+
+    /* 액센트도 회색 계열로 */
+    --accent: 0 0% 25%;
+    --accent-foreground: 0 0% 100%;
+
+    /* 보더도 더 연하게 */
+    --border: 0 0% 90%;
+    --input: 0 0% 93%;
+    --ring: 0 0% 25%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* 다크모드는 더 부드럽게 */
+    --background: 0 0% 10%;
+    --foreground: 0 0% 90%;
+
+    /* 카드 배경도 살짝 밝게 */
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 90%;
+
+    --primary: 0 0% 85%;
+    --primary-foreground: 0 0% 10%;
+
+    /* 보조 색상 */
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 80%;
+
+    /* 뮤트된 색상 */
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 0 0% 85%;
+    --accent-foreground: 0 0% 10%;
+
+    /* 보더 */
+    --border: 0 0% 16%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 85%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+
+  /* 전역 transition 개선 */
+  * {
+    @apply border-border;
+  }
+
+  /* 기본 트랜지션 설정 */
+  body,
+  .transition-base {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  /* 호버 트랜지션 */
+  .hover-transition {
+    @apply transition-all duration-200 ease-out;
+  }
+
+  /* 페이지 전환 트랜지션 */
+  .page-transition {
+    @apply transition-all duration-500 ease-in-out;
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+}
+
+@layer utilities {
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* 프로즈 스타일링 개선 */
+.prose {
+  @apply max-w-none;
+
+  /* 헤딩 */
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-bold text-foreground mt-8 mb-4;
+  }
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-xl;
+  }
+
+  /* 텍스트 */
+  p {
+    @apply text-muted-foreground mb-4 leading-relaxed;
+  }
+
+  /* 코드 블록 */
+  pre {
+    @apply p-4 rounded-lg bg-secondary/50 border my-4 overflow-x-auto;
+  }
+
+  /* 인라인 코드 */
+  code {
+    @apply px-1.5 py-0.5 rounded bg-secondary/50 text-sm;
+  }
+}
